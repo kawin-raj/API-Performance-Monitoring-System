@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Modern Sleek Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D0E12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #24262F;
+  border-radius: 9999px;
+  border: 1px solid #1A1C24;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366F1;
+}
+
+::-webkit-scrollbar-corner {
+  background: #0D0E12;
+}
+
+/* Firefox Scrollbar Styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #24262F #0D0E12;
+}
+
+/* Custom Text Selection & Smooth Scroll */
+::selection {
+  background-color: rgba(99, 102, 241, 0.4);
+  color: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0B0C10;
+  color: #E2E8F0;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}

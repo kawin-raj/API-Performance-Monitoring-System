@@ -1,0 +1,6 @@
+{
+  "name": "Intelligent API Performance Monitoring and Anomaly Detection",
+  "description": "An ML-powered real-time API monitoring system with latency prediction (XGBoost), anomaly detection (Isolation Forest), interactive analytics, automated reports, and alert management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
