@@ -4,11 +4,13 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install dependencies
+# Copy package manifests
 COPY package*.json ./
-RUN npm ci
 
-# Copy source code and build production bundle
+# Install dependencies (uses npm ci if lockfile is present, falls back gracefully to npm install)
+RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+# Copy application source code and build production bundle
 COPY . .
 RUN npm run build
 
@@ -22,7 +24,7 @@ ENV PORT=3000
 
 # Copy package descriptors and install production-only dependencies
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
 
 # Copy compiled client bundle and bundled server binary from builder
 COPY --from=builder /app/dist ./dist
