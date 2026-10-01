@@ -1,6 +1,5 @@
 import express from 'express';
 import path from 'path';
-import { createServer as createViteServer } from 'vite';
 import { db } from './database/sqliteDb.js';
 import { globalMLEngine } from './server/mlEngine.js';
 import { MLPredictionInput } from './src/types.js';
@@ -240,6 +239,7 @@ async function startServer() {
 
   // Vite middleware setup for Development vs Production
   if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
